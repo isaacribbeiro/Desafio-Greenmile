@@ -14,22 +14,43 @@ Criar um mini projeto de automação de testes, utilizando o [Cypress.io](https:
 
 Durante a realização dos testes, foi detectado uma divergência, o Cypress não consegue fazer a verificação do tamanho do quadrado porque o evento de long click não é detectado pela aplicação, o que acarreta um erro (Figura 01). Ao realizar diversas pesquisas na web, foi detectado que esse problema é ocasionado por conta da biblioteca [hammer.js](https://hammerjs.github.io/). Essa biblioteca é uma biblioteca JavaScript que dispara eventos para os gestos realizados em suas aplicações com HTML+JS, ou seja, a hammer.js fica esperando/escutando alguma ação contecer, como por exemplo touch, mouse ou pointerEvents, para disparar um determinado evento. A raiz do poblema está no fato de que a biblioteca hammer.js não consegue reconhecer ações sintéticas feitas através de um outro framework, como o Cypress, o que faz com que não haja o disparo do evento, fazendo com que o evento de expansão do quadrado não seja realizado. 
 
+
 > Figura 01 - Problema na validação após a ação de long click
-![]()
+![Print 1](https://github.com/isaacribbeiro/Desafio-Greenmile/blob/master/img/print%20screen%20(1).png)
 
-*O projeto desenvolvido é o proposto pela [NextLevelWeek#3](https://nextlevelweek.com/?utm_source=convertkit&utm_medium=email&utm_campaign=NLW3+Workshops&utm_term=Leads+OmniStack&utm_content=Workshop+5) da Rocketseat.* 
+## Solução
 
-## Versão Web
+A solução encontrada para resolver este problema, foi retirar a importação da biblioteca hammer.js, e adaptar o código do componente para utilizar apenas o JavaScript propriamente dito, conforme o código abaixo. Com isso, o Cypress conseguiu realizar o teste com o long click normalmente, alcançando com o objetivo esperado (Figura 02).
 
-![Happy-Web.gif](https://media.giphy.com/media/JAwSpBWaquHNFGhsJQ/giphy.gif)
+```sh
+var square = document.getElementsByClassName("square")[0];
 
-## Versão Mobile
+var timer;
+const tempo = 500;
 
-![Happy-Mobile.gif](https://github.com/SusanaMCosta/Happy/blob/main/happy-mobile.gif)
+const mouseDown = () => {
+  timer = setTimeout(function () {
+    square.classList.toggle("expand");
+  }, tempo);
+};
 
-## Informações
+const mouseUp = () => {
+  clearTimeout(timer);
+};
 
-O Happy é uma aplicação que conecta pessoas à orfanatos/instituições que cuidam de outras pessoas. Para visualizar onde esses orfanatos se localizam e quais estão mais perto de sua localização, basta clicar no botão no canto inferior a direita da tela inicial; a partir daí, o usuário é direcionado para um mapa contendo as localizações dos orfanatos, sinalizadas com um marcador com a logo da aplicação. Uma das facilidades do Happy, é que ele permite que o usuário cadastre novas instituições, bastando clicar no botão que também se localiza na parte inferior a direita da página.  
+square.addEventListener("mousedown", mouseDown);
+square.addEventListener("mouseup", mouseUp);
+```
+
+> Figura 02 - Problema na validação após a ação de long click
+![Print 2](https://github.com/isaacribbeiro/Desafio-Greenmile/blob/master/img/print%20screen%20(1).png)
+
+
+
+
+
+
+
 
 ## Ferramentas
 
