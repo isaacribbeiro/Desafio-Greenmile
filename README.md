@@ -3,18 +3,19 @@
 > Autor: Isaac Ribeiro 
 
 ## Objetivo
-Criar um mini projeto de automação de testes, utilizando o [Cypress.io](https://github.com/cypress-io), que execute o evento de long click, em um componente web, e consiga validar se o tamanho em escala foi alterado para 225x225 pixels. Em outras palavras, o objetivo é realizar um teste que faça com que o Cypress clique no quadrado verde que aparece na tela, e segure-o, até o quadrado mudar de tamanho.
+Criar um mini projeto de automação de testes, utilizando o [Cypress.io](https://github.com/cypress-io), que execute o evento de long click, em um componente web, e consiga validar se o tamanho em escala foi alterado para 225x225 pixels. Em outras palavras, o objetivo é realizar um teste que faça com que o Cypress verifique se um evento de long click sobre um quadrado verde que aparece na tela, faz com que ele expanda seu tamanho.
 
 ## Pré-requisitos
 
 1. **Componente web:** https://codepen.io/choskim/pen/RLYebL
 2. Utilizar o framework de automação **Cypress**
 
-## Problemas Encontrados
+## Problema
 
-Durante a realização dos testes, foi detectado uma barreir, pois  
+Durante a realização dos testes, foi detectado uma divergência, o Cypress não consegue fazer a verificação do tamanho do quadrado porque o evento de long click não é detectado pela aplicação, o que acarreta um erro (Figura 01). Ao realizar diversas pesquisas na web, foi detectado que esse problema é ocasionado por conta da biblioteca [hammer.js](https://hammerjs.github.io/). Essa biblioteca é uma biblioteca JavaScript que dispara eventos para os gestos realizados em suas aplicações com HTML+JS, ou seja, a hammer.js fica esperando/escutando alguma ação contecer, como por exemplo touch, mouse ou pointerEvents, para disparar um determinado evento. A raiz do poblema está no fato de que a biblioteca hammer.js não consegue reconhecer ações sintéticas feitas através de um outro framework, como o Cypress, o que faz com que não haja o disparo do evento, fazendo com que o evento de expansão do quadrado não seja realizado. 
 
-
+> Figura 01 - Problema na validação após a ação de long click
+![]()
 
 *O projeto desenvolvido é o proposto pela [NextLevelWeek#3](https://nextlevelweek.com/?utm_source=convertkit&utm_medium=email&utm_campaign=NLW3+Workshops&utm_term=Leads+OmniStack&utm_content=Workshop+5) da Rocketseat.* 
 
