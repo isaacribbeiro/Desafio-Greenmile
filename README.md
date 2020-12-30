@@ -18,6 +18,7 @@ Durante a realização dos testes, foi detectado uma divergência, o Cypress nã
 > Figura 01 - Problema na validação após a ação de long click
 ![Print 1](https://github.com/isaacribbeiro/Desafio-Greenmile/blob/master/img/print%20screen%20(1).png)
 
+
 ## Solução
 
 A solução encontrada para resolver este problema, foi retirar a importação da biblioteca hammer.js, e adaptar o código do componente para utilizar apenas o JavaScript propriamente dito, conforme o código abaixo. Com isso, o Cypress conseguiu realizar o teste com o long click normalmente, alcançando com o objetivo esperado (Figura 02).
@@ -42,7 +43,17 @@ square.addEventListener("mousedown", mouseDown);
 square.addEventListener("mouseup", mouseUp);
 ```
 
-> Figura 02 - Problema na validação após a ação de long click
+
+> Figura 02 - Validação do teste após resolução do problema
 ![Print 2](https://github.com/isaacribbeiro/Desafio-Greenmile/blob/master/img/print%20screen%20(2).png)
 
-## Ferramentas
+
+## Execução
+
+Para a execução deste projeto na sua máquina, basta seguir os passos adiante. Vale ressaltar que é necessário que você tenha instalado o Node JS ([Instalar Node JS](https://nodejs.org/en/)) e o Cypress ([Instalar Cypress](https://medium.com/gruponewway/instalando-o-cypress-sem-mist%C3%A9rios-6d6ee66b78d8)).
+
+1. Abrir o terminal e clonar o repositório:
+
+```sh
+git clone 
+```
