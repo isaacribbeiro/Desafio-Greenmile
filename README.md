@@ -55,5 +55,22 @@ Para a execução deste projeto na sua máquina, basta seguir os passos adiante.
 1. Abrir o terminal e clonar o repositório:
 
 ```sh
-git clone 
+git clone https://github.com/isaacribbeiro/Desafio-Greenmile.git
 ```
+
+2. Abrir o terminal na pasta que foi clonada, e digitar o comando a seguir, para instalar as dependências
+
+```sh
+npm install
+```
+
+3. Em seguida, digite o comando a seguir para iniciar o processo de teste com o Cypress:
+
+```sh
+npm run cypress:open
+```
+
+4, Por fim, basta clicar sobre o teste que vai aparecer na sua tela para que ele seja executado.
+
+## Ferramentas
+
