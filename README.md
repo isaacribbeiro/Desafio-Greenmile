@@ -50,7 +50,7 @@ square.addEventListener("mouseup", mouseUp);
 
 ## Execução
 
-Para a execução deste projeto na sua máquina, basta seguir os passos adiante. Vale ressaltar que é necessário que você tenha instalado o Node JS ([Instalar Node JS](https://nodejs.org/en/)) e o Cypress ([Instalar Cypress](https://medium.com/gruponewway/instalando-o-cypress-sem-mist%C3%A9rios-6d6ee66b78d8)).
+Para a execução deste projeto na sua máquina, basta seguir os passos adiante. Vale ressaltar que é necessário que você tenha instalado o Node JS ([Instalar Node JS](https://nodejs.org/en/)).
 
 1. Abrir o terminal e clonar o repositório:
 
